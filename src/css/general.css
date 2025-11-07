@@ -15,17 +15,9 @@
     --Gris: #C6C7C4;
     --Negro: #222222 ;
 }
-
-
-
-.main--container{
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background-color: #fcfcfc;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23232323' fill-opacity='0.6'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
+    p{
+        margin: 0 !important;
+    }
     .d-flexx{
         display: flex;
         justify-content: center;
@@ -37,15 +29,74 @@
     .d-row{
        flex-flow: row wrap;
     }
-
-
     .border{
         border: solid 1px var(--Gris);
     }
-    .people--container{
+    .trans{
+        transition: 0.3s ease-out;
+    }
+    .general--container {
+        position: relative;
+        overflow: hidden;
+        border: solid 1px var(--Gris);
+        background: var(--Blanco);
+    }
+
+.main--container{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #fcfcfc;
+    position: relative;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23232323' fill-opacity='0.6'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+    .filter--blur{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        backdrop-filter: blur(2px);
+    }
+    .people--container {
         width: 70%;
         min-width: 500px;
         max-width: 800px;
         height: auto;
-        background: var(--Blanco);
+        flex-wrap: wrap;
     }
+        .btn--circle{
+            width: 3rem;
+            height: auto;
+            aspect-ratio: 1/1;
+            border-radius: 50%;
+            cursor: pointer;
+            background-color: var(--Blanco);
+            color: var(--Negro);
+        }
+        .btn--circle:hover{
+            background-color: var(--Negro);
+            color: var(--Blanco);
+        }
+        .number--container{
+            width: fit-content;
+            height: auto;
+            font-size: 4rem;
+            color: var(--Negro);
+        }
+        .avatar--container{
+            width: 100%;
+            height: auto;
+        }
+            .avatar{
+                width: 3rem;
+                overflow: hidden;
+                height: auto;
+                aspect-ratio: 1/1;
+                border-radius: 50%;
+                background-color: var(--Blanco);
+                color: var(--Negro);
+            }
+                .avatar img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }

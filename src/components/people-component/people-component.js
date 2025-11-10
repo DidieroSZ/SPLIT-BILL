@@ -62,7 +62,7 @@ export class PeopleComponent extends LitElement{
         for (let i = 0; i < v; i++) {
             console.log(i)
             this.avatares.push(html `
-                <span class="avatar d-flexx border trans">
+                <span class="btn--circle avatar d-flexx border trans">
                     <img src="https://avatar.iran.liara.run/public">
                 </span>
             `);

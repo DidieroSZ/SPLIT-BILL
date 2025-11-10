@@ -41,6 +41,19 @@
         border: solid 1px var(--Gris);
         background: var(--Blanco);
     }
+     .btn--circle{
+        width: 3rem;
+        height: auto;
+        aspect-ratio: 1/1;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: var(--Blanco);
+        color: var(--Negro);
+    }
+        .btn--circle:hover{
+            background-color: var(--Negro);
+            color: var(--Blanco);
+        }
 
 .main--container{
     width: 100%;
@@ -63,19 +76,7 @@
         height: auto;
         flex-wrap: wrap;
     }
-        .btn--circle{
-            width: 3rem;
-            height: auto;
-            aspect-ratio: 1/1;
-            border-radius: 50%;
-            cursor: pointer;
-            background-color: var(--Blanco);
-            color: var(--Negro);
-        }
-        .btn--circle:hover{
-            background-color: var(--Negro);
-            color: var(--Blanco);
-        }
+       
         .number--container{
             width: fit-content;
             height: auto;
@@ -87,16 +88,27 @@
             height: auto;
         }
             .avatar{
-                width: 3rem;
-                overflow: hidden;
-                height: auto;
-                aspect-ratio: 1/1;
-                border-radius: 50%;
-                background-color: var(--Blanco);
-                color: var(--Negro);
+
             }
                 .avatar img{
                     width: 100%;
                     height: 100%;
                     object-fit: cover;
                 }
+    
+    .money--container{
+        width: auto;
+        height: auto;
+        position: relative;
+    }
+        .dollar--icon{
+            position: absolute;
+            aspect-ratio: 1/1;
+            transform: translateY(-50%);
+            top: 50%;
+            left: calc(1rem + 5px);
+        }
+        .input--cantidad{
+            padding-left: calc(1rem + 10px) !important;
+
+        }

@@ -26,18 +26,26 @@ export class MoneyComponent extends LitElement{
 
     render(){
         return html`
-            <article class="general--container people--container d-flexx d-row gap-3 p-3 rounded-3 border border-1">
-                <span class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.plus)} </span>
-                <div class="number--container px-3">
-                    <p>2</p>
-                </div>
-                <span class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.minus)} </span>
-                <div class="avatar--container">
-                    d
-                </div>
-            </article>
+            <div class="general--container money--container p-3 rounded-3 border border-1">
+                <span class="dollar--icon d-flexx">${unsafeHTML(svgIcons.dollar)}</span>
+                <input @blur=${this._formatValue}  class="form-control form-control-lg input--cantidad" type="text" min="1" name="cantidad">
+            </div>
             
         `;
+    }
+
+    _formatValue(e){
+        let valor = e.target.value;
+        valor = valor.replace(/[^\d.]/g, '');
+
+        let numero = parseFloat(valor);
+        const formato = new Intl.NumberFormat('es-MX', {
+            style: 'currency',
+            currency: 'MXN',
+            minimumFractionDigits: 2
+        });
+
+        e.target.value = formato.format(numero);
     }
 }
 customElements.define('money-component', MoneyComponent);

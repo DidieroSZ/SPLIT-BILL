@@ -123,15 +123,7 @@
         .money--container{
             width: 100%;
             height: 100%;
-            /* position: relative; */
         }
-            /* .dollar--icon{
-                position: absolute;
-                aspect-ratio: 1/1;
-                transform: translateY(-50%);
-                top: 50%;
-                left: calc(1rem + 5px);
-            } */
 
         result-component.gen-component{
 
@@ -141,3 +133,6 @@
             height: 100%;
             position: relative;
         }
+            .result--container > h4{
+                margin: 0;
+            }

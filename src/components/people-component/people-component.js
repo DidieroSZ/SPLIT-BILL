@@ -54,13 +54,13 @@ export class PeopleComponent extends LitElement{
             people.textContent = parseInt(this.valor - 1);
             this.valor = this.valor - 1;
         }
+        this._eventLauncher(this.valor);
     }
 
     _renderAvatares(){
         const v = this.valor;
         this.avatares = [];
         for (let i = 0; i < v; i++) {
-            console.log(i)
             this.avatares.push(html `
                 <span class="btn--circle avatar d-flexx border trans">
                     <img src="https://avatar.iran.liara.run/public">
@@ -68,6 +68,16 @@ export class PeopleComponent extends LitElement{
             `);
         }
         return html`${this.avatares}`;
+    }
+
+     _eventLauncher(v){
+         this.dispatchEvent(
+            new CustomEvent('people-set', {
+                bubbles: true,
+                composed: true,
+                detail: { ppl: v },
+            })
+        );
     }
 }
 customElements.define('people-component', PeopleComponent);

@@ -12,11 +12,12 @@ export class MoneyComponent extends LitElement{
         return this;
     }
 
-    static properties(){
-
+    static properties = {
+        valor: {type: Number },
     }
     constructor(){
         super();
+        this.valor = 0;
     }
 
     /* static styles = [
@@ -28,7 +29,7 @@ export class MoneyComponent extends LitElement{
         return html`
             <div class="general--container money--container p-3 rounded-3 border border-1 d-flexx">
                 <div class="form-floating w-100">
-                    <input @blur=${this._formatValue} id="cantidadInput" class="form-control " type="text" min="1" name="cantidad">
+                    <input @blur=${this._formatValue} id="cantidadInput" class="form-control" value="0" type="text" min="1" name="cantidad">
                     <label for="cantidadInput">Cantidad</label>
                 </div>
                
@@ -48,6 +49,18 @@ export class MoneyComponent extends LitElement{
         });
 
         e.target.value = formato.format(numero);
+        this.valor = numero;
+        this._eventLauncher(this.valor)
+    }
+
+    _eventLauncher(v){
+         this.dispatchEvent(
+            new CustomEvent('quantity-set', {
+                bubbles: true,
+                composed: true,
+                detail: { cant: v },
+            })
+        );
     }
 }
 customElements.define('money-component', MoneyComponent);

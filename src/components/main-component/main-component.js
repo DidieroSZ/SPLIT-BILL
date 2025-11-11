@@ -12,11 +12,13 @@ export class MainComponent extends LitElement{
         return this;
     }
     static properties = {
-        resultado: {type: Number },
+        cantidad: {type: Number },
+        personas: {type: Number },
     }
     constructor(){
         super();
-        this.resultado = 0;
+        this.cantidad = 0;
+        this.personas = 2;
     }
 
     /* static styles = [
@@ -29,14 +31,21 @@ export class MainComponent extends LitElement{
             <main class="main--container py-5 d-flexx">
                 <div class="filter--blur"></div>
                 <div class="container--components d-flexx gap-3">
-                    <people-component></people-component>
-                    <money-component class="gen-component"></money-component>
-                    <result-component class="gen-component"></result-component>
+                    <people-component @people-set=${this._changePeople}></people-component>
+                    <money-component @quantity-set=${this._changeQuantity} class="gen-component"></money-component>
+                    <result-component .cantidad=${this.cantidad} .personas=${this.personas} class="gen-component"></result-component>
                 </div>
                 
             </main>
             
         `;
+    }
+
+    _changeQuantity(e){
+        this.cantidad = e.detail.cant;
+    }
+    _changePeople(e){
+        this.personas = e.detail.ppl;
     }
 }
 customElements.define('main-component', MainComponent);

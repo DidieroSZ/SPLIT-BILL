@@ -26,11 +26,13 @@ export class MoneyComponent extends LitElement{
 
     render(){
         return html`
-            <div class="general--container money--container p-3 rounded-3 border border-1">
-                <span class="dollar--icon d-flexx">${unsafeHTML(svgIcons.dollar)}</span>
-                <input @blur=${this._formatValue}  class="form-control form-control-lg input--cantidad" type="text" min="1" name="cantidad">
+            <div class="general--container money--container p-3 rounded-3 border border-1 d-flexx">
+                <div class="form-floating w-100">
+                    <input @blur=${this._formatValue} id="cantidadInput" class="form-control " type="text" min="1" name="cantidad">
+                    <label for="cantidadInput">Cantidad</label>
+                </div>
+               
             </div>
-            
         `;
     }
 

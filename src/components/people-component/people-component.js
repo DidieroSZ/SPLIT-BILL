@@ -30,11 +30,11 @@ export class PeopleComponent extends LitElement{
     render(){
         return html`
             <article class="general--container people--container d-flexx d-row gap-3 p-3 rounded-3 border border-1">
-                <span @click=${this._btnClick} data-type="sum" class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.plus)} </span>
+                <span @click=${this._btnClick} data-type="min" class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.minus)} </span>
                 <div class="number--container px-3">
                     <p id="people--counter">2</p>
                 </div>
-                <span @click=${this._btnClick} data-type="min" class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.minus)} </span>
+                <span @click=${this._btnClick} data-type="sum" class="btn--circle d-flexx border trans"> ${unsafeHTML(svgIcons.plus)} </span>
                 <div class="avatar--container d-flexx gap-2">
                     ${this._renderAvatares()}
                 </div>

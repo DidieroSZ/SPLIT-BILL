@@ -3,6 +3,7 @@ import bootstrap from 'bootstrap/dist/css/bootstrap.min.css?inline'; // <-- BOOT
 /* import generaStyles from '../../css/general.css'; */ // <-- GENERAL STYLES
 import "../people-component/people-component.js"
 import "../money-component/money-component.js"
+import "../result-component/result-component.js"
 import { unsafeCSS } from 'lit-element';
 
 export class MainComponent extends LitElement{
@@ -10,11 +11,12 @@ export class MainComponent extends LitElement{
     createRenderRoot() {
         return this;
     }
-    static properties(){
-
+    static properties = {
+        resultado: {type: Number },
     }
     constructor(){
         super();
+        this.resultado = 0;
     }
 
     /* static styles = [
@@ -24,12 +26,14 @@ export class MainComponent extends LitElement{
 
     render(){
         return html`
-            <main class="main--container py-5 d-flexx d-row gap-3">
+            <main class="main--container py-5 d-flexx">
                 <div class="filter--blur"></div>
+                <div class="container--components d-flexx gap-3">
+                    <people-component></people-component>
+                    <money-component class="gen-component"></money-component>
+                    <result-component class="gen-component"></result-component>
+                </div>
                 
-                <people-component></people-component>
-                <money-component></money-component>
-                <result-component></result-component>
             </main>
             
         `;
